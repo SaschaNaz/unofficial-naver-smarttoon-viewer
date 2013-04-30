@@ -1,24 +1,24 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
-/*@media screen and (-webkit-min-device-pixel-ratio:1.5){.u_ts{background:url(http://static.naver.net/m/comic/im/2012/u_bgl2.png) repeat-x;-webkit-background-size:1px 46px}}*/
+/*@media screen and (min-resolution: 192dpi){.u_ts{background:url(http://static.naver.net/m/comic/im/2012/u_bgl2.png) repeat-x;background-size:1px 46px}}*/
 .u_gnbn{background-position:0 -130px}
 .right_area .ico{display:block;position:absolute;top:50%;left:0;width:10px;height:10px;margin:-5px 0 0 0;background:url(http://static.naver.net/m/comic/im/2012/ico_s_size.png) no-repeat}
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.right_area .ico{background:url(http://static.naver.net/m/comic/im/2012/ico_l_size.png) no-repeat;-webkit-background-size:20px 100px;}
+@media screen and (min-resolution: 192dpi){
+.right_area .ico{background:url(http://static.naver.net/m/comic/im/2012/ico_l_size.png) no-repeat;background-size:20px 100px;}
 }
-@media screen and (-webkit-min-device-pixel-ratio:1.5){.u_gnbn{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat;-webkit-background-size:81px 456px}}
+@media screen and (min-resolution: 192dpi){.u_gnbn{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat;background-size:81px 456px}}
 .right_area .up{background-position:0 0}
 .right_area .down{background-position:0 -20px}
 .right_area .none{height:2px;margin-top:0;background-position:0 -40px;vertical-align:top}
 .age_top{overflow:hidden;width:100%;margin-top:25px}
 .age_lst{overflow:hidden;background:url(http://static.naver.net/m/comic/im/2012/bg_age.png) no-repeat 100% 0}
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.age_lst{background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;-webkit-background-size:320px 100px}
+@media screen and (min-resolution: 192dpi){
+.age_lst{background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;background-size:320px 100px}
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.age_lst li{background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;-webkit-background-size:320px 100px}
+@media screen and (min-resolution: 192dpi){
+.age_lst li{background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;background-size:320px 100px}
 }
 .age_lst li{background-position:100% 0}
 .age_lst li:first-child,.age_lst li:last-child{width:16%}
@@ -28,44 +28,44 @@
 .age_lst li.on strong{color:#fdcb00}
 .age_lst li.on span{color:#fff}
 .last_on{background-position:100% -50px}
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.age_lst li a{margin-right:1px;background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;-webkit-background-size:320px 100px}
+@media screen and (min-resolution: 192dpi){
+.age_lst li a{margin-right:1px;background:url(http://static.naver.net/m/comic/im/2012/bg_age_l.png) no-repeat;background-size:320px 100px}
 }
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.pg_btn{background:url(http://static.naver.com/m/comic/im/2012/u_cm_l2.png) no-repeat;-webkit-background-size:81px 456px}	
+@media screen and (min-resolution: 192dpi){
+.pg_btn{background:url(http://static.naver.com/m/comic/im/2012/u_cm_l2.png) no-repeat;background-size:81px 456px}	
 }
 .pg_btn_next{margin-left:4px;background-position:100% -220px}
 .pg_btn_prev{margin-right:3px;background-position:0 -220px}
 .u_hsft .u_hssbt{background-color:#f2f2f2;color:#777}
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.u_ftsa .u_ico{background:url(http://static.naver.net/m/comic/im/2012/ico_l_size.png) no-repeat;-webkit-background-size:20px 100px}}
+@media screen and (min-resolution: 192dpi){
+.u_ftsa .u_ico{background:url(http://static.naver.net/m/comic/im/2012/ico_l_size.png) no-repeat;background-size:20px 100px}}
 .u_ftsa .u_ico{width:19px;background-position:0 -50px}
 .u_ftsa2{margin-left:19px}
 .u_ftsa2 .u_ico{background-position:0 -80px}
 .u_ftsa_v1 .u_ico{background-position:-57px -186px}
 
 
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.iic2{background-image:url(http://static.naver.com/m/comic/im/ti_i2_l.gif);-webkit-background-size:15px 15px}
-.u_grp{background:url(http://static.naver.com/m/comic/im/ico_grp_star_l.gif) repeat-x 0 -17px;-webkit-background-size:15px 30px}
-.u_grp_v{background:url(http://static.naver.com/m/comic/im/ico_grp_star_l.gif);-webkit-background-size:15px 30px}
-.u_grade_b,.u_grade_b2, .u_grade_bon, .u_grade_m, .u_grade_p{background-image:url(http://static.naver.com/m/comic/im/ico_grade_l.gif);-webkit-background-size:32px 124px}
-.ic3 img{background-image:url(http://static.naver.com/m/comic/im/ic_ton_l.gif);-webkit-background-size:60px 16px;}
-.u_pg2 .u_pg2_prev,.u_pg2 .u_pg2_next{background-image:url(http://static.naver.com/m/comic/im/ico_pg2_l.gif);-webkit-background-size:18px 48px}
-.bt5 .pv, .bt7 .pv, .bt7 .nx{background-image:url(http://static.naver.com/m/comic/im/ib_l2.gif);-webkit-background-size:15px 546px}
-.u_pg3 a{background:url(http://static.naver.net/m/comic/im/ib_l2.gif) no-repeat,-webkit-gradient(linear,0 0,0 100%,from(#f8f8f8),to(#efefef));-webkit-background-size:15px 546px,0 100%}
-.cmt .lst_cmt li .btn .bt3 .del, .cmt .fbtn a, .cmt .bt5 .dn, .cmt .bt5 .up{background-image:url(http://static.naver.com/m/comic/im/sp_bu2_l.gif);-webkit-background-size:10px 150px}
-.bt5 .x{background:url(http://static.naver.com/m/comic/im/2012/u_cm_l2.png) no-repeat -66px -440px;-webkit-background-size:81px 456px}
-.gnb,.u_clrt,.atbt .atbt_b,.u_ftsa_v1 .u_ico,.u_ftst .u_ico{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat;-webkit-background-size:81px 456px}
-.u_ftlkw .u_ftlkbt:before{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat 100% -106px;-webkit-background-size:81px 456px} 
-.ico_l,.u_ftst:before{background-image:url(http://static.naver.net/m/comic/im/2012/ico_l_20.png);-webkit-background-size:50px 500px}
-.new_webtoon{background-image:url(http://static.naver.net/m/comic/im/2012/bg_l_newwebtoon.png);-webkit-background-size:55px 159px}
-.new_ribbon{background-image:url(http://static.naver.net/m/comic/im/2012/ico_l_cartoon_new.png);-webkit-background-size:43px 43px}
-.toonlst2 li.smart_toon .u_grp{background:url(http://static.naver.net/m/comic/im/2012/ico_grp_star_l.png);-webkit-background-size:15px 30px}
-.toonlst2 li.smart_toon .u_grp_v{background:url(http://static.naver.net/m/comic/im/2012/ico_grp_star_l.png);-webkit-background-size:15px 30px}
+@media screen and (min-resolution: 192dpi){
+.iic2{background-image:url(http://static.naver.com/m/comic/im/ti_i2_l.gif);background-size:15px 15px}
+.u_grp{background:url(http://static.naver.com/m/comic/im/ico_grp_star_l.gif) repeat-x 0 -17px;background-size:15px 30px}
+.u_grp_v{background:url(http://static.naver.com/m/comic/im/ico_grp_star_l.gif);background-size:15px 30px}
+.u_grade_b,.u_grade_b2, .u_grade_bon, .u_grade_m, .u_grade_p{background-image:url(http://static.naver.com/m/comic/im/ico_grade_l.gif);background-size:32px 124px}
+.ic3 img{background-image:url(http://static.naver.com/m/comic/im/ic_ton_l.gif);background-size:60px 16px;}
+.u_pg2 .u_pg2_prev,.u_pg2 .u_pg2_next{background-image:url(http://static.naver.com/m/comic/im/ico_pg2_l.gif);background-size:18px 48px}
+.bt5 .pv, .bt7 .pv, .bt7 .nx{background-image:url(http://static.naver.com/m/comic/im/ib_l2.gif);background-size:15px 546px}
+.u_pg3 a{background:url(http://static.naver.net/m/comic/im/ib_l2.gif) no-repeat,linear-gradient(to bottom right, #F8F8F8 0%, #EFEFEF 100%);background-size:15px 546px,0 100%}
+.cmt .lst_cmt li .btn .bt3 .del, .cmt .fbtn a, .cmt .bt5 .dn, .cmt .bt5 .up{background-image:url(http://static.naver.com/m/comic/im/sp_bu2_l.gif);background-size:10px 150px}
+.bt5 .x{background:url(http://static.naver.com/m/comic/im/2012/u_cm_l2.png) no-repeat -66px -440px;background-size:81px 456px}
+.gnb,.u_clrt,.atbt .atbt_b,.u_ftsa_v1 .u_ico,.u_ftst .u_ico{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat;background-size:81px 456px}
+.u_ftlkw .u_ftlkbt:before{background:url(http://static.naver.net/m/comic/im/2012/u_cm_l2.png) no-repeat 100% -106px;background-size:81px 456px} 
+.ico_l,.u_ftst:before{background-image:url(http://static.naver.net/m/comic/im/2012/ico_l_20.png);background-size:50px 500px}
+.new_webtoon{background-image:url(http://static.naver.net/m/comic/im/2012/bg_l_newwebtoon.png);background-size:55px 159px}
+.new_ribbon{background-image:url(http://static.naver.net/m/comic/im/2012/ico_l_cartoon_new.png);background-size:43px 43px}
+.toonlst2 li.smart_toon .u_grp{background:url(http://static.naver.net/m/comic/im/2012/ico_grp_star_l.png);background-size:15px 30px}
+.toonlst2 li.smart_toon .u_grp_v{background:url(http://static.naver.net/m/comic/im/2012/ico_grp_star_l.png);background-size:15px 30px}
 
 /* gnb */
-.u_ts_a,.u_gnbt,.u_gnbh,.u_ts_a,.u_hsbt,.u_hs .u_hssbt{background:url(http://static.naver.net/m/comic/im/2012/u_gnb4_4g.png) no-repeat;-webkit-background-size:200px 150px}
+.u_ts_a,.u_gnbt,.u_gnbh,.u_ts_a,.u_hsbt,.u_hs .u_hssbt{background:url(http://static.naver.net/m/comic/im/2012/u_gnb4_4g.png) no-repeat;background-size:200px 150px}
 .u_ts_a{background-position:-132px 12px}
 .u_hsbt_op{background-position:0 -40px}
 .u_hsbt_fd{background-position:-38px -40px}
@@ -74,31 +74,31 @@
 .u_hs .u_hssbt_ss{background-position:-100px -40px}
 .u_hs .u_hssbt_us{background-position:-142px -40px}
 
-.nothing_toonlst .no_img.week,.register{background:url(http://static.naver.net/m/comic/im/2012/no_4g.png) no-repeat;-webkit-background-size:110px 108px}
-.nothing_toonlst .no_img.srch{background:url(http://static.naver.net/m/comic/im/2012/no_srch_4g.png) no-repeat;-webkit-background-size:106px 103px}
-.chn.m2 a.more span{background:url(http://static.naver.net/m/comic/im/2012/im_4g.png) no-repeat 0 -122px;-webkit-background-size:250px 200px}
-.chn.m2.close a.more span{background:url(http://static.naver.net/m/comic/im/2012/im_4g.png) no-repeat -16px -122px;-webkit-background-size:250px 200px}
-.top_toonlst li a.right_arr{background:url(http://static.naver.net/m/comic/im/2012/bu_arr_x2.png) no-repeat 100% 50%;-webkit-background-size:17px 9px}
-.sea_tit .u_btn .uc_ico_pv{background:url(http://static.naver.net/m/comic/im/2012/bu_arl_x2.png) no-repeat 2px 5px;-webkit-background-size:6px 9px}
+.nothing_toonlst .no_img.week,.register{background:url(http://static.naver.net/m/comic/im/2012/no_4g.png) no-repeat;background-size:110px 108px}
+.nothing_toonlst .no_img.srch{background:url(http://static.naver.net/m/comic/im/2012/no_srch_4g.png) no-repeat;background-size:106px 103px}
+.chn.m2 a.more span{background:url(http://static.naver.net/m/comic/im/2012/im_4g.png) no-repeat 0 -122px;background-size:250px 200px}
+.chn.m2.close a.more span{background:url(http://static.naver.net/m/comic/im/2012/im_4g.png) no-repeat -16px -122px;background-size:250px 200px}
+.top_toonlst li a.right_arr{background:url(http://static.naver.net/m/comic/im/2012/bu_arr_x2.png) no-repeat 100% 50%;background-size:17px 9px}
+.sea_tit .u_btn .uc_ico_pv{background:url(http://static.naver.net/m/comic/im/2012/bu_arl_x2.png) no-repeat 2px 5px;background-size:6px 9px}
 
-.webtoon_lst li .im_br .nw{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbnewl.png) no-repeat;-webkit-background-size:34px 34px}
-.webtoon_lst li .im_br .end{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbendl.png) no-repeat;-webkit-background-size:34px 34px}
-.top_toonlst li .im_br .nw{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbnewl.png) no-repeat;-webkit-background-size:34px 34px}
-.top_toonlst li .im_br .end{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbendl.png) no-repeat;-webkit-background-size:34px 34px}
-.webtoon_lst li .im_br:before{display:block;position:absolute;left:1px;top:1px;width:92px;height:49px;z-index:10;border:1px solid #fff;opacity:.15;filter:Alpha(Opacity=15);content:'';} 
-.top_toonlst li .im_br:before{display:block;position:absolute;left:1px;top:1px;width:67px;height:38px;z-index:10;border:1px solid #fff;opacity:.15;filter:Alpha(Opacity=15);content:'';} 
-.webtoon_lst li .im_br:after{display:block;position:absolute;left:0;top:0;width:94px;height:51px;z-index:10;border:1px solid #000;opacity:.1;filter:Alpha(Opacity=10);content:'';} 
-.top_toonlst li .im_br:after{display:block;position:absolute;left:0;top:0;width:69px;height:40px;z-index:10;border:1px solid #000;opacity:.1;filter:Alpha(Opacity=10);content:'';} 
+.webtoon_lst li .im_br .nw{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbnewl.png) no-repeat;background-size:34px 34px}
+.webtoon_lst li .im_br .end{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbendl.png) no-repeat;background-size:34px 34px}
+.top_toonlst li .im_br .nw{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbnewl.png) no-repeat;background-size:34px 34px}
+.top_toonlst li .im_br .end{background:url(http://static.naver.net/m/comic/im/2012/ico_thumbendl.png) no-repeat;background-size:34px 34px}
+.webtoon_lst li .im_br:before{display:block;position:absolute;left:1px;top:1px;width:92px;height:49px;z-index:10;border:1px solid #fff;opacity:.15;content:'';} 
+.top_toonlst li .im_br:before{display:block;position:absolute;left:1px;top:1px;width:67px;height:38px;z-index:10;border:1px solid #fff;opacity:.15;content:'';} 
+.webtoon_lst li .im_br:after{display:block;position:absolute;left:0;top:0;width:94px;height:51px;z-index:10;border:1px solid #000;opacity:.1;content:'';} 
+.top_toonlst li .im_br:after{display:block;position:absolute;left:0;top:0;width:69px;height:40px;z-index:10;border:1px solid #000;opacity:.1;content:'';} 
 .toonlst2 .lst .im_br{width:63px;height:51px} 
 .toonlst2 .lst .im_br:before{width:59px;height:47px;left:1px;top:1px} 
 .toonlst2 .lst .im_br:after{width:61px;height:49px;left:0;top:0} 
-.toon_lst2 li .thumb:before{display:block;position:absolute;left:1px;top:1px;width:59px;height:47px;z-index:10;border:1px solid #fff;opacity:.15;filter:Alpha(Opacity=15);content:''} 
+.toon_lst2 li .thumb:before{display:block;position:absolute;left:1px;top:1px;width:59px;height:47px;z-index:10;border:1px solid #fff;opacity:.15;content:''} 
 .toon_lst2 li .thumb:after{width:61px;height:49px;left:0;top:0;border:1px solid #000;opacity:.1;filter:Alpha(Opacity=10);content:''}
-.webtoon_lst li .im_br .ico_break{position:absolute;right:0;bottom:0;z-index:20;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;-webkit-background-size:33px 16px}
-.toon_lst2 .ico_break{position:absolute;right:0;bottom:0;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;-webkit-background-size:33px 16px}
-.toon_tit .sub_menu{background:url(http://static.naver.net/m/comic/im/2012/bg_tabtoon4g.png) no-repeat;-webkit-background-size:143px 54px}
+.webtoon_lst li .im_br .ico_break{position:absolute;right:0;bottom:0;z-index:20;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;background-size:33px 16px}
+.toon_lst2 .ico_break{position:absolute;right:0;bottom:0;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;background-size:33px 16px}
+.toon_tit .sub_menu{background:url(http://static.naver.net/m/comic/im/2012/bg_tabtoon4g.png) no-repeat;background-size:143px 54px}
 .toon_tit .code2{background-position:0 -27px}
-.btn_smart{background-image:url(http://static.naver.net/m/comic/im/2012/u_gnb4_4g.png);-webkit-background-size:200px 150px}
+.btn_smart{background-image:url(http://static.naver.net/m/comic/im/2012/u_gnb4_4g.png);background-size:200px 150px}
 }
 
 @media screen and (orientation:landscape){.chn.m2 a.more{right:3px}}
@@ -157,42 +157,42 @@
 }
 
 
-@media screen and (-webkit-min-device-pixel-ratio:1.5){
-.viewer_gnb{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_header_x2.png);-webkit-background-size:40px 49px}
-.viewer_gnb a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.viewer_gnb .btn_prev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.viewer_gnb .btn_help{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.viewer_gnb .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.viewer_gnb .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.viewer_gnb .top_bg{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_topwhite2_x2.png);-webkit-background-size:296px 50px}
-.tool_area .tool{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_tool_x2.png);-webkit-background-size:40px 64px}
-.tool_area .tool .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .tool .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .tool .tool_bg{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_bottomwhite_x2.png);-webkit-background-size:195px 29px}
-.tool_area .tool_lst li a span{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_btn a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_bar_x2.png);-webkit-background-size:30px 38px}
-.tool_area .paging .page_bar .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .bar_gage{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .gage{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .control{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .gage_end{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.tool_area .paging .page_bar .gage_onend{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.btn_tool a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.btn_tool .up a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px} 
-.view_lst .thumb{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_loading_x2.png);-webkit-background-size:51px 87px}
-.view_lst{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_pattern_x2.jpg);-webkit-background-size:65px 65px}
-.view_lst .mask{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_mask_x2.png);-webkit-background-size:51px 87px}
-.viewer_lyr{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_endpage3_x2.png);-webkit-background-size:253px 157px}
-.view_mini{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_endpage4_x2.png);-webkit-background-size:253px 115px}
-.viewer_type2{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_error_x2.png);-webkit-background-size:253px 140px}
-.viewer_lyr .btn_group a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);-webkit-background-size:210px 150px}
-.viewer_lyr .btn_group .ico_prev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);-webkit-background-size:210px 150px}
-.viewer_lyr .btn_group .ico_next{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);-webkit-background-size:210px 150px}
-.tool_area .tool_lst .btn{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px}
-.tool_area .tool_lst .btn a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px}
-.btn_tprev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);-webkit-background-size:1000px 250px}
+@media screen and (min-resolution: 192dpi){
+.viewer_gnb{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_header_x2.png);background-size:40px 49px}
+.viewer_gnb a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.viewer_gnb .btn_prev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.viewer_gnb .btn_help{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.viewer_gnb .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.viewer_gnb .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.viewer_gnb .top_bg{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_topwhite2_x2.png);background-size:296px 50px}
+.tool_area .tool{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_tool_x2.png);background-size:40px 64px}
+.tool_area .tool .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .tool .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .tool .tool_bg{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_bottomwhite_x2.png);background-size:195px 29px}
+.tool_area .tool_lst li a span{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_btn a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_bar_x2.png);background-size:30px 38px}
+.tool_area .paging .page_bar .bgl{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .bgr{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .bar_gage{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .gage{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .control{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .gage_end{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.tool_area .paging .page_bar .gage_onend{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.btn_tool a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.btn_tool .up a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px} 
+.view_lst .thumb{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_loading_x2.png);background-size:51px 87px}
+.view_lst{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_pattern_x2.jpg);background-size:65px 65px}
+.view_lst .mask{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_mask_x2.png);background-size:51px 87px}
+.viewer_lyr{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_endpage3_x2.png);background-size:253px 157px}
+.view_mini{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_endpage4_x2.png);background-size:253px 115px}
+.viewer_type2{background-image:url(http://static.naver.net/m/comic/im/viewer/bg_error_x2.png);background-size:253px 140px}
+.viewer_lyr .btn_group a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);background-size:210px 150px}
+.viewer_lyr .btn_group .ico_prev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);background-size:210px 150px}
+.viewer_lyr .btn_group .ico_next{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_endpage3_x2.png);background-size:210px 150px}
+.tool_area .tool_lst .btn{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px}
+.tool_area .tool_lst .btn a{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px}
+.btn_tprev{background-image:url(http://static.naver.net/m/comic/im/viewer/sp_tool5_x2.png);background-size:1000px 250px}
 
 
 }
