@@ -93,7 +93,7 @@
 .toonlst2 .lst .im_br:before{width:59px;height:47px;left:1px;top:1px} 
 .toonlst2 .lst .im_br:after{width:61px;height:49px;left:0;top:0} 
 .toon_lst2 li .thumb:before{display:block;position:absolute;left:1px;top:1px;width:59px;height:47px;z-index:10;border:1px solid #fff;opacity:.15;content:''} 
-.toon_lst2 li .thumb:after{width:61px;height:49px;left:0;top:0;border:1px solid #000;opacity:.1;filter:Alpha(Opacity=10);content:''}
+.toon_lst2 li .thumb:after{width:61px;height:49px;left:0;top:0;border:1px solid #000;opacity:.1;content:''}
 .webtoon_lst li .im_br .ico_break{position:absolute;right:0;bottom:0;z-index:20;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;background-size:33px 16px}
 .toon_lst2 .ico_break{position:absolute;right:0;bottom:0;width:33px;height:16px;background:url(http://static.naver.net/m/comic/im/2012/ico_breaktoon4g.png) no-repeat;background-size:33px 16px}
 .toon_tit .sub_menu{background:url(http://static.naver.net/m/comic/im/2012/bg_tabtoon4g.png) no-repeat;background-size:143px 54px}
