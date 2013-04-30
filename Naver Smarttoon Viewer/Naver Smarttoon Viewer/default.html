@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Naver_Smarttoon_Viewer</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- Naver_Smarttoon_Viewer references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <link rel="stylesheet" href="/compress/common/css/w.css" />
+    <link rel="stylesheet" href="/compress/common/css/e.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+    <link rel="stylesheet" href="http://metoo.naver.net/plugins/me2_m.css"/>
+    <link rel="stylesheet" href="/compress/common/css/mediaScreen.css" />
+    <script type="text/javascript" src="/common/js/nclk.js"></script>
+</head>
+<script type="text/javascript">
+    function addLoadEvent(func) {
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        }
+        else {
+            window.onload = function () {
+                oldonload();
+                func();
+            }
+        }
+    }
+
+    var floatFlag;
+    function display_floatinglayer() {
+        if (floatFlag == true) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "/common/js/reloadFile.js";
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+    }
+</script>
+<body onload="display_floatinglayer();">
+    <script type="text/javascript">
+        /**
+         * 브라우저에서 잘못 캐시한 JS/CSS 파일을 새로고침
+         *
+         * @author sungmin lee (sungmin.lee@nhn.com)
+         */
+        var ReloadFile = (function () {
+            if (typeof window.defineNHNJS == "undefined") {
+                window.defineNHNJS = {};
+            }
+
+
+            var _RETRY_TIME = 2000;
+            var _retryInfo = {};
+            var _retryTimer = {};
+
+            function _reloadJS(id, file, func) {
+                _clearRetryTimeout(id);
+
+                if (typeof window.defineNHNJS[id] == "undefined" && _retryInfo[id].retry++ < _retryInfo[id].maxRetry) {
+                    var tag = document.createElement("script");
+                    tag.type = "text/javascript";
+                    tag.src = file + "?" + new Date().getTime();
+                    document.getElementsByTagName("head")[0].appendChild(tag);
+
+                    _setRetryTimer(id, function () {
+                        _reloadJS(id, func, file)
+                    });
+                }
+                else if (typeof window.defineNHNJS[id] != "undefined") {
+                    func();
+                }
+            }
+
+            function _setRetryTimer(id, fn) {
+                if (_retryInfo[id].maxRetry > 1) {
+                    _retryTimer[id] = setTimeout(fn, _RETRY_TIME);
+                }
+            }
+
+            function _setRetryInfo(id, maxRetry) {
+                _retryInfo[id] = {
+                    retry: 0,
+                    maxRetry: maxRetry || 1
+                };
+            }
+
+            function _clearRetryTimeout(id) {
+                if (typeof _retryTimer[id] != "undefined") {
+                    clearTimeout(_retryTimer[id]);
+                    _retryTimer[id] = null;
+                }
+            }
+
+            return {
+                js: function (id, file, func, maxRetry) {
+                    _setRetryInfo(id, maxRetry);
+                    _reloadJS(id, file, func);
+                }
+            };
+        })();
+    </script>
+
+    <!-- ct  -->
+    <link rel="stylesheet" href="/compress/common/css/viewer.css">
+    <link rel="stylesheet" href="/compress/common/css/mediaScreen.css">
+    <script type="text/javascript">
+        var nsc = "Mcomic.sviewer";
+    </script>
+
+    <div id="u_skip" class="u_skip">
+	    <a href="#ct">본문 바로가기</a>
+    </div>
+
+    <div class="viewer">
+	    <header class="viewer_gnb smt-toolbar-header" style="top:-59px;">
+	        <h1 class="tit">29 알</h1>
+	        <a href="/webtoon/list.nhn?titleId=511446" onclick="nclk(this, 'tto.back', '', '')" class="btn_prev"><span>목록</span></a>
+	        <a href="/smarttoon/starComment.nhn?titleId=511446&no=29#nafullscreen" onclick="nclk(this, 'tto.review', '', '')" class="btn_info"><span>댓글</span></a>
+	        <span class="bgl"></span>
+	        <span class="bgr"></span>
+	        <span class="top_bg"></span>
+	    </header>
+
+	    <div id="ct">
+		    <div class="view_section">
+			    <div class="img smt-cut" style="overflow:hidden;"></div>
+		    </div>
+	    </div>
+	    <!-- //ct -->
+
+	    <div class="tool_area smt-toolbar-footer" style="bottom:-116px;">
+		    <div class="tool">
+			    <div class="tool_lst">
+				    <ul>
+					    <li class="smt-btn-thumbnail-view"><a href="#"><span>전체보기</span></a></li>
+					    <li class="smt-btn-bookmark"><a href="#"><span>책갈피</span></a></li>
+					    <li class="smt-btn-toggle-effect"><a href="#"><span>책장넘김</span></a></li>
+				    </ul>
+				    <div class="btn"><a href="#" class="prev smt-btn-prev-cut"><span>이전</span></a><a href="#" class="next smt-btn-next-cut"><span>다음</span></a></div>
+				    <span class="bgl"></span>
+				    <span class="bgr"></span>
+				    <span class="tool_bg"></span>
+			    </div>
+			    <div class="paging">
+				    <div class="page_bar">
+					    <div class="bar_section">
+						    <span class="bar_gage smt-slider">
+							    <span class="gage_end"></span>
+							    <span class="gage smt-slider-range">
+								    <span class="gage_onend"></span>
+							    </span>
+							    <span class="control_section"><a href="#" class="control smt-slider-thumb"></a></span>
+						    </span>
+						    <span class="page_num"><em class="smt-current-cut-position">12</em><span class="bar">/</span><span class="smt-total-cut-count">123</span></span>
+					    </div>
+					    <span class="bgl"></span>
+					    <span class="bgr"></span>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+	    <div class="btn_tool" style="display:none;"><div class="btn_tbox smt-btn-toggle-toolbar"><a href="#"><span>툴 열기</span></a></div></div>
+	    <div class="btn_tprev smt-btn-fast-prev-cut"><a href="#"><span>이전화면으로</span></a></div>
+
+	    <div class="viewer_end_ly _dlg_lastpage" style="display: none;">
+		    <div class="viewer_end">
+			    <div class="viewer_inner">
+				    <p class="title">마지막 페이지입니다.</p>
+				    <div class="btn_group">
+					    <a href="/smarttoon/starComment.nhn?titleId=511446&no=29#nafullscreen" class="btn_starview" onclick="nclk(this, 'lpa.review', '', '')">별점·댓글 보기</a>
+					    <!-- [D] 이전/다음 버튼 클릭/활성화시 class="on" 추가 -->
+					    <a href="/webtoon/detail.nhn?titleId=511446&seq=28&week=tue#nafullscreen" class="btn_prev" onclick="nclk(this, 'lpa.prev', '', '')"><span class="ico_prev"></span><span>이전화</span></a>
+					    <a href="/webtoon/list.nhn?titleId=511446" onclick="nclk(this, 'lpa.list', '', '')" class="btn_list"><span>목록 보기</span></a>
+				    </div>
+				    <a href="#none" class="btn_close"><strong>마지막 페이지 안내 레이어 닫기</strong></a>
+			    </div>
+	
+			    <!-- 애드포스트 -->
+			    <script type="text/template" id="adpostTemplate">
+			    <h3 class="pl_h">
+				    <span class="u_hc">파워링크</span>
+				    <em class="ads">Ads by NAVER</em>
+			    </h3>
+			    </script>
+			    <script type="text/javascript">
+			        function adCR(adcrUrl, p) {
+			            var l = adcrUrl + "&p=" + p;
+			            if (document.images) {
+			                (new Image()).src = l;
+			            }
+			            else {
+			                document.location = l;
+			            }
+			            return true;
+			        };
+			    </script>
+			    <div id="adpostArea" class="end_pl">
+			    </div>
+			    <!-- //애드포스트 -->
+			
+		    </div>
+	    </div>
+
+	    <div class="viewer_lyr viewer_type2 _dlg_loading_error" style="display:none;">
+		    <p class="tit">이미지 로딩 실패</p>
+		    <p class="txt">네트워크 확인 후 다시 시도해 주세요</p>
+		    <div class="btn_group">
+			    <a href="/webtoon/list.nhn?titleId=511446" class="btn_mini"><span>목록</span></a>
+			    <a href="#" class="btn_mini2" onclick="location.reload(); return false;"><span>재시도</span></a>
+		    </div>
+	    </div>
+	    <div class="dimmed" style="display: none;"></div>
+	
+	    <div class="popup _dlg_popup" style="display:none;">
+		    <div class="header"><img src="http://static.naver.net/m/comic/im/2012/im_smart_h2.jpg" style="width: 100%" alt="">
+			    <div class="blind">
+				    <h1>스마트하게 즐기는 스마트 툰!</h1>
+				    <p>한 컷 단위로 볼 수 있는 새로운 웹툰 서비스입니다. 아래 3가지 기능을 사용하여 재미있게 감상하세요.</p>
+			    </div>
+		    </div>
+		    <div class="pop_ct"><img src="http://static.naver.net/m/comic/im/2012/im_smart_info3.jpg" style="width: 100%" alt="">
+			    <ul class="blind">
+				    <li>다음 장면 보기 : 어느곳이나 한번 터치</li>
+				    <li>메뉴보기 숨기기 : 위 아래로 밀기</li>
+				    <li>이전 장면 보기 : 메뉴 안에 화살표 버튼 터치</li>
+			    </ul>
+			    <p class="blind">스마트툰은 세로보기 화면에 최적화 되어 있습니다.</p>
+		    </div>
+		    <a href="#" class="btn_close"><span>닫기</span></a>
+	    </div>
+	    <div class="popup_bg" style="display:none;"></div>
+    </div>
+
+	<!-- footerJsFile -->
+	<script type="text/javascript" src="/common/js/release/footer.js"></script>
+
+	<!-- smarttoonViewerJsFile -->
+	<script type="text/javascript" src="/common/js/release/smarttoon_viewer.js"></script>
+			
+		
+    <script type="text/javascript">
+    <!--
+        var nRealignCount = 0;
+        var LIMIT_REALIGN_COUNT = 20;
+        var loadFunction = function () {
+            var aCutData = [
+    	        {
+    	            sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_001.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+    	        }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_002.jpg', sEffectType: 'FADE_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_003.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_004.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_005.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_006.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_007.jpg', sEffectType: 'FADE_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_008.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_009.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_010.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_011.jpg', sEffectType: 'ZOOM_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_012.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_013.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_014.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_015.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_016.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_017.jpg', sEffectType: 'FADE_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_018.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_019.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_020.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_021.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_022.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_023.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_024.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_025.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_026.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_027.jpg', sEffectType: 'ZOOM_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_028.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_029.jpg', sEffectType: 'FADE_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_030.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_031.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_032.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_033.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_034.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_035.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_036.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_037.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_038.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_039.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_040.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_041.jpg', sEffectType: 'FADE_IN', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_042.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_043.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+                , {
+                    sImageUrl: 'http://imgcomic.naver.com/mobilewebimg/511446/29/9437a6bcc389012334f624f206be26e6_044.jpg', sEffectType: 'DEFAULT', nDuration: 500, sBackgroundColor: '#FFFFFF'
+                }
+            ];
+            var elViewer = jindo.$$.getSingle('.viewer');
+
+            var oAdpost = null;
+
+            oAdpost = new Adpost(jindo.$("adpostArea"), jindo.$Template("adpostTemplate"), "http://cmapi.comic.naver.com/api/adpostRelay.nhn", "nmwebtoon_7ff2b3210ea3405cbc1dc970af0b8df8", 2, "", {
+                nBuffer: -1
+            });
+
+            var oDialogHandler = new DialogHandler(elViewer, oAdpost);
+            var oRecentReadHandler = new RecentReadHandler(10);
+
+            // GalaxyS는 성능 이슈로 인해 책장넘김 효과를 OFF한다.
+            var oViewer = new SmarttoonViewer(elViewer, aCutData, {
+                'bActivateOnload': false,
+                'bPlayEffect': !(jindo.m.getDeviceInfo().galaxyS || jindo.m.getDeviceInfo().optimusVu),
+                'bBookmark': false
+            }).attach({
+                'afterChangeCut': function (e) {
+                    oRecentReadHandler.setRecentPosition(511446, 29, e.nPosition);
+                    lcs_do();
+                }
+            ,
+                'blockMoveNextCut': function (e) {
+                    oViewer.hideToolbar();
+                    oDialogHandler.showLastpageDialog();
+                }
+            ,
+                'loadingError': function (e) {
+                    oViewer.hideToolbar();
+                    oDialogHandler.showLoadingErrorDialog();
+                }
+            ,
+                'thumbnailViewClicked': function (e) {
+                    location.href = '/smarttoon/thumbview.nhn?titleId=511446&no=29&seq=29&cutSeq=' + e.nPosition + '#nafullscreen';
+                }
+            ,
+                'bookmarkButtonClicked': function (e) {
+                    if (true == false) {
+                        var naverLoginURL = ' https://nid.naver.com/nidlogin.login?svctype=262144&url= ';
+                        naverLoginURL = naverLoginURL + encodeURIComponent(window.location.href);
+                        document.location.href = naverLoginURL;
+                    }
+                    else {
+                        bookmarkAct.init('511446', '29', 'tue', '29');
+                        bookmarkAct._bookmark();
+                        oViewer.highlightBookmarkButton();
+                    }
+                }
+            });
+
+            // ios chrome 주소창 문제를 위한 브라우져 확인
+            var sOsName = jindo.$Agent().os().getName();
+            var bChrome = window.navigator.userAgent.indexOf('CriOS') != -1;
+            var bIosChrome = (sOsName == 'ipad' || sOsName == 'iphone') && bChrome;
+
+            // 화면 재구성 함수
+            var wfnRealign = jindo.$Fn(function () {
+                if (nRealignCount >= LIMIT_REALIGN_COUNT) {
+                    wfnRealign.stopRepeat();
+                }
+                jindo.$Element(document.body).css('padding-bottom', '100px');
+                if (bIosChrome) {
+                    // ios chrome은 따로 처리
+                    window.scrollTo(0, -1);
+                }
+                else {
+                    window.scrollTo(0, 1);
+                }
+
+                oViewer.setSize(window.innerWidth, window.innerHeight);
+
+                nRealignCount++;
+            });
+
+            // 시스템 스크롤 차단
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+                return false;
+            }
+        , true);
+
+            // 화면 Orientation 변경 시 화면 재구성
+            jindo.m.bindRotate(function () {
+                (wfnRealign.$value())();
+            });
+
+            BMR.run('http://sp.naver.com/sp');
+            lcs_SerName = "lcs.naver.com";
+            lcs_do();
+
+            oDialogHandler.showPopupDialog();
+            oViewer.activate();
+            (wfnRealign.$value())();
+            wfnRealign.repeat(0.5);
+
+            jindo.$Fn(function () {
+                if (0 > 0) {
+                    oViewer.show(0);
+                }
+                else {
+                    oViewer.show(oRecentReadHandler.getRecentPosition(511446, 29));
+                }
+
+                jindo.$Element(jindo.$$.getSingle('.btn_tool', elViewer)).show();
+            }
+        , this).delay(0.5);
+        }
+
+        var reloadJsFile = '/common/js/release/smarttoon_viewer.js';
+        if (reloadJsFile) {
+            ReloadFile.js("default", reloadJsFile, loadFunction, 3);
+        }
+        else {
+            loadFunction();
+        }
+        //-->
+    </script>
+</body>
+</html>
