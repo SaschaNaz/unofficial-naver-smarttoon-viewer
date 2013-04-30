@@ -8025,7 +8025,7 @@ jindo.m.Loading=jindo.$Class({
             for(var i=0;
             i<aSpan.length;
             i++){
-                jindo.$Element(aSpan[i]).css(sCssPrefix+"Animation","loadingfade 1s linear "+jindo.m.Loading.DELAY[i]+" infinite")
+                jindo.$Element(aSpan[i]).css("animation","loadingfade 1s linear "+jindo.m.Loading.DELAY[i]+" infinite")
             }
             this._attachEvent();
             this._htWElement.container.show();
@@ -8040,7 +8040,7 @@ jindo.m.Loading=jindo.$Class({
             for(var i=0;
             i<aSpan.length;
             i++){
-                jindo.$Element(aSpan[i]).css(sCssPrefix+"Animation","")
+                jindo.$Element(aSpan[i]).css("animation","")
             }
             this._detachEvent();
             this._htWElement.container.hide();
@@ -8097,9 +8097,8 @@ jindo.m.Loading=jindo.$Class({
         i++){
             aHtml.push("<span style='display:block;position:absolute;top:40%;left:48%;width:11%;height:24%;border-radius:6px;background:");
             aHtml.push(this.option("sDefaultForeground"));
-            aHtml.push("; opacity:0; -");
-            aHtml.push(sCssPrefix);
-            aHtml.push("-transform:rotate(");
+            aHtml.push("; opacity:0; ");
+            aHtml.push("transform:rotate(");
             aHtml.push(i*30);
             aHtml.push("deg) translate(0,-140%);'></span>")
         }
@@ -8294,7 +8293,7 @@ jindo.m.Transition=jindo.$Class({
     }
     ,_stopTransition:function(bAfter){
         this._detachTransitionEnd();
-        this._elCurrent.style[this._sCssPrefix+"transition-property"]="none";
+        this._elCurrent.style["transition-property"]="none";
         this._initTransition();
         if(!bAfter){
             var nIndex=this._getBeforeStatusElement(this._elCurrent);
@@ -8373,7 +8372,7 @@ jindo.m.Transition=jindo.$Class({
         for(var p in this._htCurrentTask.htDefault){
             var sValue=this._htCurrentTask.htDefault[p];
             if(!(p.indexOf("duration")>-1&&!bAttachEvt)){
-                wel.$value().style[this._sCssPrefix+p]=sValue
+                wel.$value().style[p]=sValue
             }
             
         }
@@ -8404,7 +8403,7 @@ jindo.m.Transition=jindo.$Class({
         var bDiff=false;
         for(var p in this._htCurrentTask.htTransform){
             var sValue=this._htCurrentTask.htTransform[p];
-            wel.$value().style[this._sCssPrefix+p]=sValue;
+            wel.$value().style[p]=sValue;
             bDiff=true
         }
         return bDiff
@@ -8428,7 +8427,7 @@ jindo.m.Transition=jindo.$Class({
                     var now=(new Date()).getTime();
                     if(now>=(startTime+nDuration)){
                         clearTimeout(self._nTimerAnimate);
-                        el.style[self._sCssPrefix+sTransfrom]=sValue;
+                        el.style[sTransfrom]=sValue;
                         self._onTransitionEnd();
                         return
                     }
@@ -8467,12 +8466,12 @@ jindo.m.Transition=jindo.$Class({
                     if(sZ!==null){
                         aText.push(sZ)
                     }
-                    el.style[self._sCssPrefix+sTransfrom]=sPreValue+"("+aText.join(",")+")";
+                    el.style[sTransfrom]=sPreValue+"("+aText.join(",")+")";
                     self._nTimerAnimate=setTimeout(translate,1)
                 })()
             }
             else{
-                wel.$value().style[this._sCssPrefix+p]=sValue
+                wel.$value().style[p]=sValue
             }
             bDiff=true
         }
@@ -8556,14 +8555,14 @@ jindo.m.Transition=jindo.$Class({
                     for(p in this._htCurrentTask.fCallback.htTransform){
                         var sValue=this._htCurrentTask.fCallback.htTransform[p];
                         if(p=="transform"){
-                            var sPrefix=this._sCssPrefix+p;
+                            var sPrefix=p;
                             var sText=wel.$value().style[sPrefix];
                             if(sText.length>0){
                                 sValue=sValue
                             }
                             
                         }
-                        wel.$value().style[this._sCssPrefix+p]=sValue
+                        wel.$value().style[p]=sValue
                     }
                     for(p in this._htCurrentTask.fCallback.htStyle){
                         wel.css(p,this._htCurrentTask.fCallback.htStyle[p])
@@ -8588,11 +8587,11 @@ jindo.m.Transition=jindo.$Class({
         if(typeof el==="undefined"){
             el=this._elCurrent
         }
-        el.style[this._sCssPrefix+"transition-duration"]=null;
-        el.style[this._sCssPrefix+"transition-timing-function"]=null;
-        el.style[this._sCssPrefix+"perspective"]=null;
-        el.style[this._sCssPrefix+"transform-style"]=null;
-        el.style[this._sCssPrefix+"transition-property"]=null
+        el.style["transition-duration"]=null;
+        el.style["transition-timing-function"]=null;
+        el.style["perspective"]=null;
+        el.style["transform-style"]=null;
+        el.style["transition-property"]=null
     }
     ,_getcubicBeziserPosition:function(nStart,nEnd,nDuration,nCurrentTime){
         nStart=nStart*1;
@@ -20302,7 +20301,7 @@ MobileCommentJindo.m.FlipEffect=MobileCommentJindo.$Class({
         htTo[sCoord]=htTo[sCoord]+((sDirection=="left"||sDirection=="down")?180*-1:180);
         var sTransfrom="rotateX("+htTo.X+"deg) rotateY("+htTo.Y+"deg)";
         if(welTo){
-            welTo.$value().style[this._sCssPrefix+"Transform"]="rotate"+sCoord+"(0deg)";
+            welTo.$value().style["transform"]="rotate"+sCoord+"(0deg)";
             sTransfrom="rotate"+sCoord+"(0deg)"
         }
         return{
@@ -20327,7 +20326,7 @@ MobileCommentJindo.m.FlipEffect=MobileCommentJindo.$Class({
         var htFrom=this._getCssRotate(this._getCssTransfrom(welFrom));
         var sTransfrom="rotateX("+htFrom.X+"deg) rotateY("+htFrom.Y+"deg)";
         if(welTo){
-            welTo.$value().style[this._sCssPrefix+"Transform"]="rotate"+sCoord+"(-180deg)";
+            welTo.$value().style["transform"]="rotate"+sCoord+"(-180deg)";
             sTransfrom="rotate"+sCoord+"(-180deg)"
         }
         return{
@@ -20365,7 +20364,7 @@ MobileCommentJindo.m.FlipEffect=MobileCommentJindo.$Class({
         return htReturn
     }
     ,_getCssTransfrom:function(wel){
-        return wel.css(this._sCssPrefix+"Transform")||""
+        return wel.css("transform")||""
     }
     
 }).extend(MobileCommentJindo.m.Effect);
@@ -20712,7 +20711,7 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
     }
     ,_stopTransition:function(bAfter){
         this._detachTransitionEnd();
-        this._elCurrent.style[this._sCssPrefix+"transition-property"]="none";
+        this._elCurrent.style["transition-property"]="none";
         this._initTransition();
         if(!bAfter){
             var nIndex=this._getBeforeStatusElement(this._elCurrent);
@@ -20791,7 +20790,7 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
         for(var p in this._htCurrentTask.htDefault){
             var sValue=this._htCurrentTask.htDefault[p];
             if(!(p.indexOf("duration")>-1&&!bAttachEvt)){
-                wel.$value().style[this._sCssPrefix+p]=sValue
+                wel.$value().style[p]=sValue
             }
             
         }
@@ -20822,7 +20821,7 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
         var bDiff=false;
         for(var p in this._htCurrentTask.htTransform){
             var sValue=this._htCurrentTask.htTransform[p];
-            wel.$value().style[this._sCssPrefix+p]=sValue;
+            wel.$value().style[p]=sValue;
             bDiff=true
         }
         return bDiff
@@ -20846,7 +20845,7 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
                     var now=Date.now();
                     if(now>=(startTime+nDuration)){
                         clearTimeout(self._nTimerAnimate);
-                        el.style[self._sCssPrefix+sTransfrom]=sValue;
+                        el.style[sTransfrom]=sValue;
                         self._onTransitionEnd();
                         return
                     }
@@ -20885,12 +20884,12 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
                     if(sZ!==null){
                         aText.push(sZ)
                     }
-                    el.style[self._sCssPrefix+sTransfrom]=sPreValue+"("+aText.join(",")+")";
+                    el.style[sTransfrom]=sPreValue+"("+aText.join(",")+")";
                     self._nTimerAnimate=setTimeout(translate,1)
                 })()
             }
             else{
-                wel.$value().style[this._sCssPrefix+p]=sValue
+                wel.$value().style[p]=sValue
             }
             bDiff=true
         }
@@ -20974,14 +20973,14 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
                     for(var p in this._htCurrentTask.fCallback.htTransform){
                         var sValue=this._htCurrentTask.fCallback.htTransform[p];
                         if(p=="transform"){
-                            var sPrefix=this._sCssPrefix+p;
+                            var sPrefix=p;
                             var sText=wel.$value().style[sPrefix];
                             if(sText.length>0){
                                 sValue=sValue
                             }
                             
                         }
-                        wel.$value().style[this._sCssPrefix+p]=sValue
+                        wel.$value().style[p]=sValue
                     }
                     for(var p in this._htCurrentTask.fCallback.htStyle){
                         wel.css(p,this._htCurrentTask.fCallback.htStyle[p])
@@ -21007,11 +21006,11 @@ MobileCommentJindo.m.Transition=MobileCommentJindo.$Class({
         if(typeof el==="undefined"){
             el=this._elCurrent
         }
-        el.style[this._sCssPrefix+"transition-duration"]=null;
-        el.style[this._sCssPrefix+"transition-timing-function"]=null;
-        el.style[this._sCssPrefix+"perspective"]=null;
-        el.style[this._sCssPrefix+"transform-style"]=null;
-        el.style[this._sCssPrefix+"transition-property"]=null
+        el.style["transition-duration"]=null;
+        el.style["transition-timing-function"]=null;
+        el.style["perspective"]=null;
+        el.style["transform-style"]=null;
+        el.style["transition-property"]=null
     }
     ,_getcubicBeziserPosition:function(nStart,nEnd,nDuration,nCurrentTime){
         nStart=nStart*1;
@@ -21472,9 +21471,9 @@ MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
         this._htWElement.scroller=this._htWElement.wrapper.first();
         this._htWElement.scroller.css({
             position:"absolute",zIndex:1,left:0,top:0
-        }).css(this.sCssPrefix+"TransitionProperty","-webkit-transform").css(this.sCssPrefix+"TransitionDuration",0).css(this.sCssPrefix+"Transform","translate"+this.sTranOpen+"0,0"+this.sTranEnd);
+        }).css("transitionProperty","transform").css("transitionDuration",0).css("transform","translate"+this.sTranOpen+"0,0"+this.sTranEnd);
         if(this.option("bUseTransition")){
-            this._htWElement.scroller.css(this.sCssPrefix+"TransitionTimingFunction","cubic-bezier(0.33,0.66,0.66,1)")
+            this._htWElement.scroller.css("transitionTimingFunction","cubic-bezier(0.33,0.66,0.66,1)")
         }
         if(this._bUseHighlight&&this.isAndroid&&this.nVersion<3){
             this._elDummyTag=MobileCommentJindo.$$.getSingle("._scroller_dummy_atag_",this._htWElement.scroller.$value());
@@ -21542,7 +21541,7 @@ MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
                 nLeft-=htStyleOffset.left;
                 nTop-=htStyleOffset.top
             }
-            this._htWElement.scroller.css(this.sCssPrefix+"Transform","translate"+this.sTranOpen+nLeft+"px, "+nTop+"px"+this.sTranEnd);
+            this._htWElement.scroller.css("transform","translate"+this.sTranOpen+nLeft+"px, "+nTop+"px"+this.sTranEnd);
             this._fireEvent("position")
         }
         
@@ -21662,7 +21661,7 @@ MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
     }
     ,_transitionTime:function(nDuration){
         nDuration+="ms";
-        this._htWElement.scroller.css(this.sCssPrefix+"TransitionDuration",nDuration);
+        this._htWElement.scroller.css("transitionDuration",nDuration);
         this._fireEventSetDuration(nDuration)
     }
     ,_clearAnchorForIos:function(){
@@ -21965,8 +21964,8 @@ MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
                     var ele=self._htWElement.scroller.$value();
                     var htCssOffset=MobileCommentJindo.m.getCssOffset(ele);
                     var htScrollOffset=self._htWElement.scroller.offset();
-                    ele.style[self.sCssPrefix+"TransitionDuration"]=null;
-                    ele.style[self.sCssPrefix+"Transform"]=null;
+                    ele.style["transitionDuration"]=null;
+                    ele.style["transform"]=null;
                     self._htWElement.scroller.offset(htCssOffset.top+htScrollOffset.top,htCssOffset.left+htScrollOffset.left);
                     if(self.nVersion<3){
                         self._elDummyTag.focus()
@@ -23084,7 +23083,7 @@ MobileCommentJindo.m.CircularFlicking=MobileCommentJindo.$Class({
             for(var i=0,nLen=this._htWElement.aPanel.length;
             i<nLen;
             i++){
-                this._htWElement.aPanel[i].css(this._sCssPrefix+"TransformStyle","preserve-3d")
+                this._htWElement.aPanel[i].css("transformStyle","preserve-3d")
             }
             
         }
@@ -23366,9 +23365,9 @@ MobileCommentJindo.m.CircularFlicking=MobileCommentJindo.$Class({
             nTime+="ms"
         }
         var htCss={};
-        htCss[this._sCssPrefix+"TransitionProperty"]="-webkit-transform";
-        htCss[this._sCssPrefix+"TransitionDuration"]=nTime;
-        htCss[this._sCssPrefix+"Transform"]=this.sTransformStart+nX+"px,"+nY+"px"+this.sTransformEnd;
+        htCss["transitionProperty"]="transform";
+        htCss["transitionDuration"]=nTime;
+        htCss["transform"]=this.sTransformStart+nX+"px,"+nY+"px"+this.sTransformEnd;
         wel.css(htCss)
     }
     ,_clearAnchor:function(){
@@ -23472,9 +23471,9 @@ MobileCommentJindo.m.CircularFlicking=MobileCommentJindo.$Class({
     ,_onTransitionEnd:function(evt){
         this._detachTransitionEnd();
         MobileCommentJindo.$A(this._htWElement.aPanel).forEach(function(value,i,array){
-            value.$value().style[this._sCssPrefix+"TransitionDuration"]=null;
-            value.$value().style[this._sCssPrefix+"TransitionProperty"]="";
-            value.$value().style[this._sCssPrefix+"Transform"]=""
+            value.$value().style["transitionDuration"]=null;
+            value.$value().style["transitionProperty"]="";
+            value.$value().style["transform"]=""
         }
         ,this);
         var bFireEvent=false;
@@ -25898,7 +25897,7 @@ MobileCommentJindo.m.Loading=MobileCommentJindo.$Class({
             for(var i=0;
             i<aSpan.length;
             i++){
-                MobileCommentJindo.$Element(aSpan[i]).css(sCssPrefix+"Animation","loadingfade 1s linear "+MobileCommentJindo.m.Loading.DELAY[i]+" infinite")
+                MobileCommentJindo.$Element(aSpan[i]).css("animation","loadingfade 1s linear "+MobileCommentJindo.m.Loading.DELAY[i]+" infinite")
             }
             this._attachEvent();
             this._htWElement.container.show();
@@ -25913,7 +25912,7 @@ MobileCommentJindo.m.Loading=MobileCommentJindo.$Class({
             for(var i=0;
             i<aSpan.length;
             i++){
-                MobileCommentJindo.$Element(aSpan[i]).css(sCssPrefix+"Animation","")
+                MobileCommentJindo.$Element(aSpan[i]).css("animation","")
             }
             this._detachEvent();
             this._htWElement.container.hide();
@@ -25965,7 +25964,7 @@ MobileCommentJindo.m.Loading=MobileCommentJindo.$Class({
         if(!MobileCommentJindo.$(MobileCommentJindo.m.Loading.ANIMATION_STYLE)){
             var elStyle=MobileCommentJindo.$("<style id='"+MobileCommentJindo.m.Loading.ANIMATION_STYLE+"' type='text/css'></style>");
             document.getElementsByTagName("head")[0].appendChild(elStyle);
-            elStyle.sheet.insertRule("@-webkit-keyframes loadingfade{from{opacity:1}to{opacity:0}}",0)
+            elStyle.sheet.insertRule("@keyframes loadingfade{from{opacity:1}to{opacity:0}}",0)
         }
         
     }
@@ -25976,9 +25975,8 @@ MobileCommentJindo.m.Loading=MobileCommentJindo.$Class({
         i++){
             aHtml.push("<span style='display:block;position:absolute;top:40%;left:48%;width:11%;height:24%;border-radius:6px;background:");
             aHtml.push(this.option("sDefaultForeground"));
-            aHtml.push("; opacity:0; -");
-            aHtml.push(sCssPrefix);
-            aHtml.push("-transform:rotate(");
+            aHtml.push("; opacity:0; ");
+            aHtml.push("transform:rotate(");
             aHtml.push(i*30);
             aHtml.push("deg) translate(0,-140%);'></span>")
         }
@@ -26965,8 +26963,8 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
             var ele=wel.$value();
             var htOffset=MobileCommentJindo.m.getCssOffset(ele);
             var htIndicatorOffset=wel.offset();
-            ele.style[this._oCore.sCssPrefix+"TransitionDuration"]=null;
-            ele.style[this._oCore.sCssPrefix+"Transform"]=null;
+            ele.style["transitionDuration"]=null;
+            ele.style["transform"]=null;
             wel.offset(htOffset.top+htIndicatorOffset.top,htOffset.left+htIndicatorOffset.left)
         }
         
@@ -26977,10 +26975,10 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
     ,_onSetDuration:function(we){
         if(this.option("bUseScrollbar")){
             if(we.bUseHScroll&&this._htWElement.HscrollbarIndicator){
-                this._htWElement.HscrollbarIndicator.css(this._oCore.sCssPrefix+"TransitionDuration",we.nDuration)
+                this._htWElement.HscrollbarIndicator.css("transitionDuration",we.nDuration)
             }
             if(we.bUseVScroll&&this._htWElement.VscrollbarIndicator){
-                this._htWElement.VscrollbarIndicator.css(this._oCore.sCssPrefix+"TransitionDuration",we.nDuration)
+                this._htWElement.VscrollbarIndicator.css("transitionDuration",we.nDuration)
             }
             
         }
@@ -27038,7 +27036,7 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
                 wel.opacity(0)
             }
             else{
-                wel.css(this._oCore.sCssPrefix+"TransitionDuration","300ms").opacity(0)
+                wel.css("transitionDuration","300ms").opacity(0)
             }
             
         }
@@ -27195,7 +27193,7 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
             position:"absolute",zIndex:100,bottom:(sDirection==="H"?"1px":(this._oCore.bUseHScroll?"7":"2")+"px"),right:(sDirection==="H"?(this._oCore.bUseVScroll?"7":"2")+"px":"1px"),pointerEvents:"none",overflow:"hidden"
         });
         if(!this.option("bUseFixedScrollbar")){
-            welScrollbar.css(this._oCore.sCssPrefix+"TransitionProperty","opacity").css(this._oCore.sCssPrefix+"TransitionDuration","0").opacity(0)
+            welScrollbar.css("transitionProperty","opacity").css("transitionDuration","0").opacity(0)
         }
         if(sDirection==="H"){
             welScrollbar.css({
@@ -27213,9 +27211,9 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
         var welScrollbarIndicator=MobileCommentJindo.$Element("<div>");
         welScrollbarIndicator.css({
             position:"absolute",zIndex:100,border:"1px solid rgba(255,255,255,0.9)",borderRadius:"3px",pointerEvents:"none",left:0,top:0,"background-color":"rgba(0,0,0,0.5)"
-        }).css(this._oCore.sCssPrefix+"BackgroundClip","padding-box").css(this._oCore.sCssPrefix+"BoxSizing","border-box").css(this._oCore.sCssPrefix+"BorderRadius","3px").css(this._oCore.sCssPrefix+"TransitionProperty","-webkit-transform").css(this._oCore.sCssPrefix+"Transform","translate"+this._oCore.sTransOpen+"0,0"+this._oCore.sTransEnd);
+        }).css("backgroundClip","padding-box").css("boxSizing","border-box").css("borderRadius","3px").css("transitionProperty","transform").css("transform","translate"+this._oCore.sTransOpen+"0,0"+this._oCore.sTransEnd);
         if(this._oCore.option("bUseTransition")){
-            welScrollbarIndicator.css(this._oCore.sCssPrefix+"TransitionTimingFunction","cubic-bezier(0.33,0.66,0.66,1)")
+            welScrollbarIndicator.css("transitionTimingFunction","cubic-bezier(0.33,0.66,0.66,1)")
         }
         if(sDirection==="H"){
             welScrollbarIndicator.css("height","100%")
@@ -27237,10 +27235,10 @@ MobileCommentJindo.m.Scroll=MobileCommentJindo.$Class({
                 var nBufferPos=parseInt((sDirection==="H"?welIndicator.css("left"):welIndicator.css("top")),10);
                 nPos-=isNaN(nBufferPos)?0:nBufferPos
             }
-            welIndicator.css(this._oCore.sCssPrefix+"Transform","translate"+this._oCore.sTranOpen+(sDirection==="H"?nPos+"px,0":"0,"+nPos+"px")+this._oCore.sTranEnd)
+            welIndicator.css("transform","translate"+this._oCore.sTranOpen+(sDirection==="H"?nPos+"px,0":"0,"+nPos+"px")+this._oCore.sTranEnd)
         }
         if(!this.option("bUseFixedScrollbar")&&welScrollbar){
-            welScrollbar.css(this._oCore.sCssPrefix+"TransitionDuration",0).opacity(1)
+            welScrollbar.css("transitionDuration",0).opacity(1)
         }
         
     }
@@ -31267,7 +31265,7 @@ nhn=(typeof nhn!=="undefined")?nhn:{};
 nhn.comment=nhn.comment||{};
 nhn.comment.mobile=nhn.comment.mobile||{};
 (function(){
-    document.domain="naver.com";
+    //document.domain="naver.com";
     var J=window.nhn.comment.mobile.jindo||jindo,Comment=nhn.comment.mobile;
     nhn.comment.mobile.NAME="nhn.comment.mobile";
     nhn.comment.mobile.VERSION="1.0.0.4641";
