@@ -9097,9 +9097,7 @@ var SmarttoonCutEffect=jindo.$Class({
             }
             ,htTransform:{
                 transform:"scale(0)",
-				"moz-transform":"scale(0)",
-				"transform-origin":"50% 50%",
-				"moz-transform-origin":"50% 50%"
+				"transform-origin":"50% 50%"
             }
             
         });
@@ -9109,9 +9107,7 @@ var SmarttoonCutEffect=jindo.$Class({
             }
             ,htTransform:{
                 transform:"scale(1)",
-				"moz-transform":"scale(1)",
-				"transform-origin":"50% 50%",
-				"moz-transform-origin":"50% 50%"
+				"transform-origin":"50% 50%"
             }
             
         })
@@ -20293,6 +20289,7 @@ MobileCommentJindo.m.FlipEffect=MobileCommentJindo.$Class({
         var welTo=htOption.elFlipTo?MobileCommentJindo.$Element(htOption.elFlipTo):null;
         var elParent=welFrom.$value().parentNode;
         elParent.style.webkitPerspective="1200";
+		elParent.style.perspective="1200px";
         var htFrom=this._getCssRotate(this._getCssTransfrom(welFrom));
         var sTransfrom="rotateX("+htFrom.X+"deg) rotateY("+htFrom.Y+"deg)";
         if(welTo){
