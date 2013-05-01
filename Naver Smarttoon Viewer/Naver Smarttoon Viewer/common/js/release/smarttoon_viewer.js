@@ -7845,8 +7845,8 @@ jindo.m.Slider=jindo.$Class({
         if(n>100||n<0){
             return
         }
-        this._htWElement.thumb.css("webkitTransitionDuration","0ms");
-        this._htWElement.thumb.css("webkitTransitionProperty",this._htSwap.left);
+        this._htWElement.thumb.css("transitionDuration","0ms");
+        this._htWElement.thumb.css("transitionProperty",this._htSwap.left);
         this._htWElement.thumb.css(this._htSwap.left,n+"%")
     }
     ,_getTrackInfo:function(){
@@ -9096,7 +9096,10 @@ var SmarttoonCutEffect=jindo.$Class({
                 opacity:0.1
             }
             ,htTransform:{
-                transform:"scale(0)","transform-origin":"50% 50%"
+                transform:"scale(0)",
+				"moz-transform":"scale(0)",
+				"transform-origin":"50% 50%",
+				"moz-transform-origin":"50% 50%"
             }
             
         });
@@ -9105,7 +9108,10 @@ var SmarttoonCutEffect=jindo.$Class({
                 opacity:1
             }
             ,htTransform:{
-                transform:"scale(1)","transform-origin":"50% 50%"
+                transform:"scale(1)",
+				"moz-transform":"scale(1)",
+				"transform-origin":"50% 50%",
+				"moz-transform-origin":"50% 50%"
             }
             
         })
@@ -22689,11 +22695,10 @@ MobileCommentJindo.m.Accordion=MobileCommentJindo.$Class({
         var sTransition="";
         var sDirection=this.option("sDirection");
         elBlock.style.webkitTransition="";
-        elBlock.style.mozTransition="";
+		elBlock.style.transition="";
         if(sDirection==="vertical"){
             sTransition="height "+nDuration+"ms "+sTransitionTimingFunction;
             elBlock.style.webkitTransition=sTransition;
-            elBlock.style.mozTransition=sTransition;
 			elBlock.style.transition=sTransition;
             elBlock.style.height=nBlockSize+"px"
         }
@@ -22701,7 +22706,6 @@ MobileCommentJindo.m.Accordion=MobileCommentJindo.$Class({
             if(sDirection==="horizontal"){
                 sTransition="width "+nDuration+"ms "+sTransitionTimingFunction;
                 elBlock.style.webkitTransition=sTransition;
-                elBlock.style.mozTransition=sTransition;
 				elBlock.style.transition=sTransition;
                 elBlock.style.width=nBlockSize+"px"
             }
