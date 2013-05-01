@@ -3917,7 +3917,7 @@ jindo.$Element._getTransition=function(){
     var hasTransition=false,sTransitionName="";
     if(typeof document.body.style.trasition!="undefined"){
         hasTransition=true;
-        sTransitionName="trasition"
+        sTransitionName="transition"
     }
     else{
         if(typeof document.body.style.webkitTransition!=="undefined"){
@@ -7010,28 +7010,10 @@ jindo.m=(function(){
             
         }
         ,attachTransitionEnd:function(element,fHandlerToBind){
-            var nVersion=+jindo.$Jindo().version.replace(/[a-z.]/gi,"");
-            if(nVersion>=151){
-                element._jindo_fn_=jindo.$Fn(fHandlerToBind,this).attach(element,"transitionend")
-            }
-            else{
-                element.addEventListener("webkitTransitionEnd",fHandlerToBind,false)
-            }
-            
+			element.addEventListener("transitionend",fHandlerToBind,false)
         }
         ,detachTransitionEnd:function(element,fHandlerToUnbind){
-            var nVersion=+jindo.$Jindo().version.replace(/[a-z.]/gi,"");
-            if(nVersion>=151){
-                if(element._jindo_fn_){
-                    element._jindo_fn_.detach(element,"transitionend");
-                    delete element._jindo_fn_
-                }
-                
-            }
-            else{
-                element.removeEventListener("webkitTransitionEnd",fHandlerToUnbind,false)
-            }
-            
+			element.removeEventListener("transitionend",fHandlerToUnbind,false)
         }
         ,getCssPrefix:function(){
             var sCssPrefix="";
@@ -18962,28 +18944,10 @@ MobileCommentJindo.m=(function(){
             
         }
         ,attachTransitionEnd:function(element,fHandlerToBind){
-            var nVersion=+MobileCommentJindo.$Jindo().version.replace(/[a-z.]/gi,"");
-            if(nVersion>=151){
-                element._jindo_fn_=MobileCommentJindo.$Fn(fHandlerToBind,this).attach(element,"transitionend")
-            }
-            else{
-                element.addEventListener("webkitTransitionEnd",fHandlerToBind,false)
-            }
-            
+			element.addEventListener("transitionend",fHandlerToBind,false)            
         }
         ,detachTransitionEnd:function(element,fHandlerToUnbind){
-            var nVersion=+MobileCommentJindo.$Jindo().version.replace(/[a-z.]/gi,"");
-            if(nVersion>=151){
-                if(element._jindo_fn_){
-                    element._jindo_fn_.detach(element,"transitionend");
-                    delete element._jindo_fn_
-                }
-                
-            }
-            else{
-                element.removeEventListener("webkitTransitionEnd",fHandlerToUnbind,false)
-            }
-            
+			element.removeEventListener("transitionend",fHandlerToUnbind,false)
         }
         ,getCssPrefix:function(){
             var sCssPrefix="";
@@ -22730,6 +22694,7 @@ MobileCommentJindo.m.Accordion=MobileCommentJindo.$Class({
             sTransition="height "+nDuration+"ms "+sTransitionTimingFunction;
             elBlock.style.webkitTransition=sTransition;
             elBlock.style.mozTransition=sTransition;
+			elBlock.style.transition=sTransition;
             elBlock.style.height=nBlockSize+"px"
         }
         else{
@@ -22737,6 +22702,7 @@ MobileCommentJindo.m.Accordion=MobileCommentJindo.$Class({
                 sTransition="width "+nDuration+"ms "+sTransitionTimingFunction;
                 elBlock.style.webkitTransition=sTransition;
                 elBlock.style.mozTransition=sTransition;
+				elBlock.style.transition=sTransition;
                 elBlock.style.width=nBlockSize+"px"
             }
             
@@ -22750,10 +22716,10 @@ MobileCommentJindo.m.Accordion=MobileCommentJindo.$Class({
     }
     ,_attachTransitionEnd:function(elBlock){
         this._elTransition=elBlock;
-        this._elTransition.addEventListener("webkitTransitionEnd",this._wfTransitionEnd,false)
+        this._elTransition.addEventListener("transitionend",this._wfTransitionEnd,false)
     }
     ,_detachTransitionEnd:function(el){
-        el.removeEventListener("webkitTransitionEnd",this._wfTransitionEnd,false);
+        el.removeEventListener("transitionend",this._wfTransitionEnd,false);
         this._elTransition=null
     }
     ,_onTransitionEnd:function(evt){
@@ -24017,9 +23983,9 @@ MobileCommentJindo.m.Datepicker=MobileCommentJindo.$Class({
         this._fnTransitionEnd=MobileCommentJindo.$Fn(this._TransitionEnd,this).bind();
         elBase.addEventListener(sEvent,this._fnTransitionEnd,false);
         setTimeout(function(){
-            elBase.style.webkitTransitionDuration=sDuration;
-            elBase.style.webkitTransitionProperty="all";
-            elBase.style.webkitTransitionTimingFunction="ease-in-out";
+            elBase.style.transitionDuration=sDuration;
+            elBase.style.transitionProperty="all";
+            elBase.style.transitionTimingFunction="ease-in-out";
             if(sType=="fade-in"){
                 elBase.style.opacity=1
             }
@@ -24038,9 +24004,9 @@ MobileCommentJindo.m.Datepicker=MobileCommentJindo.$Class({
         var sCssFix=MobileCommentJindo.m.getCssPrefix();
         var sEvent=(sCssFix=="webkit")?"webkitTransitionEnd":"transitionend";
         var htDatePickerSet=this._htSelectedDatePickerSet;
-        elBase.style.webkitTransitionDuration=null;
-        elBase.style.webkitTransitionProperty=null;
-        elBase.style.webkitTransitionTimingFunction=null;
+        elBase.style.transitionDuration=null;
+        elBase.style.transitionProperty=null;
+        elBase.style.transitionTimingFunction=null;
         elBase.removeEventListener(sEvent,this._fnTransitionEnd,false);
         this._fnTransitionEnd=null;
         if(this._sEffectDirection=="fade-in"){
@@ -27337,8 +27303,8 @@ MobileCommentJindo.m.Slider=MobileCommentJindo.$Class({
         if(n>100||n<0){
             return
         }
-        this._htWElement.thumb.css("webkitTransitionDuration","0ms");
-        this._htWElement.thumb.css("webkitTransitionProperty",this._htSwap.left);
+        this._htWElement.thumb.css("transitionDuration","0ms");
+        this._htWElement.thumb.css("transitionProperty",this._htSwap.left);
         this._htWElement.thumb.css(this._htSwap.left,n+"%")
     }
     ,_getTrackInfo:function(){
@@ -28182,8 +28148,8 @@ MobileCommentJindo.m.ToggleSlider=MobileCommentJindo.$Class({
             nTime=0
         }
         if(this._htWElement.thumb){
-            this._htWElement.thumb.css("webkitTransitionDuration",nTime+"ms");
-            this._htWElement.thumb.css("webkitTransitionProperty","left");
+            this._htWElement.thumb.css("transitionDuration",nTime+"ms");
+            this._htWElement.thumb.css("transitionProperty","left");
             this._htWElement.thumb.css("left",n+"%")
         }
         
