@@ -3949,7 +3949,7 @@ jindo.$Element.prototype.appear=function(duration,callback){
             var bindFunc=function(){
                 callback();
                 this.show();
-                this.removeEventListener(oTransition.name+"End",arguments.callee,false)
+                this.removeEventListener(oTransition.name == transition ? "transitionend" : oTransition.name + "End", arguments.callee, false)
             };
             var ele=this._element;
             var self=this;
@@ -3957,7 +3957,7 @@ jindo.$Element.prototype.appear=function(duration,callback){
                 ele.style.opacity=ele.style.opacity||0;
                 self.show()
             }
-            ele.addEventListener(oTransition.name+"End",bindFunc,false);
+            ele.addEventListener(oTransition.name == transition ? "transitionend" : oTransition.name + "End", bindFunc, false);
             ele.style[oTransition.name+"Property"]="opacity";
             ele.style[oTransition.name+"Duration"]=duration+"s";
             ele.style[oTransition.name+"TimingFunction"]="linear";
@@ -4012,11 +4012,11 @@ jindo.$Element.prototype.disappear=function(duration,callback){
             callback=callback||function(){};
             var bindFunc=function(){
                 callback();
-                this.removeEventListener(oTransition.name+"End",arguments.callee,false);
+                this.removeEventListener(oTransition.name == transition ? "transitionend" : oTransition.name + "End", arguments.callee, false);
                 self.hide()
             };
             var ele=this._element;
-            ele.addEventListener(oTransition.name+"End",bindFunc,false);
+            ele.addEventListener(oTransition.name == transition ? "transitionend" : oTransition.name + "End", bindFunc, false);
             ele.style[oTransition.name+"Property"]="opacity";
             ele.style[oTransition.name+"Duration"]=duration+"s";
             ele.style[oTransition.name+"TimingFunction"]="linear";
@@ -4999,46 +4999,46 @@ jindo.$Fn.prototype.attach=function(oElement,sEvent,bUseCapture){
                     else{
                         if(ev=="transitionend"||ev=="transitionstart"){
                             var sPrefix,sPostfix=ev.replace("transition","");
-                            sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                            if(typeof document.body.style.WebkitTransition!=="undefined"){
-                                sPrefix="webkit"
-                            }
-                            else{
-                                if(typeof document.body.style.OTransition!=="undefined"){
-                                    sPrefix="o"
+                            sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                            if (typeof document.body.style.transition === "undefined") {
+                                if (typeof document.body.style.WebkitTransition !== "undefined") {
+                                    sPrefix = "webkit"
                                 }
-                                else{
-                                    if(typeof document.body.style.MsTransition!=="undefined"){
-                                        sPrefix="ms"
+                                else {
+                                    if (typeof document.body.style.OTransition !== "undefined") {
+                                        sPrefix = "o"
                                     }
-                                    
+                                    else {
+                                        if (typeof document.body.style.MsTransition !== "undefined") {
+                                            sPrefix = "ms"
+                                        }
+                                    }
                                 }
-                                
                             }
-                            ev=(sPrefix?sPrefix+"Transition":"transition")+sPostfix;
+                            ev = sPrefix ? sPrefix + "Transition" + sPostfix : ev;
                             this._for_test_attach=ev;
                             this._for_test_detach=""
                         }
                         else{
                             if(ev=="animationstart"||ev=="animationend"||ev=="animationiteration"){
                                 var sPrefix,sPostfix=ev.replace("animation","");
-                                sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                                if(typeof document.body.style.WebkitAnimationName!=="undefined"){
-                                    sPrefix="webkit"
-                                }
-                                else{
-                                    if(typeof document.body.style.OAnimationName!=="undefined"){
-                                        sPrefix="o"
+                                sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                                if (typeof document.body.style.animationName === "undefined") {
+                                    if (typeof document.body.style.WebkitAnimationName !== "undefined") {
+                                        sPrefix = "webkit"
                                     }
-                                    else{
-                                        if(typeof document.body.style.MsTransitionName!=="undefined"){
-                                            sPrefix="ms"
+                                    else {
+                                        if (typeof document.body.style.OAnimationName !== "undefined") {
+                                            sPrefix = "o"
                                         }
-                                        
+                                        else {
+                                            if (typeof document.body.style.MsTransitionName !== "undefined") {
+                                                sPrefix = "ms"
+                                            }
+                                        }
                                     }
-                                    
                                 }
-                                ev=(sPrefix?sPrefix+"Animation":"animation")+sPostfix;
+                                ev = sPrefix ? sPrefix + "Animation" + sPostfix : ev;
                                 this._for_test_attach=ev;
                                 this._for_test_detach=""
                             }
@@ -5127,46 +5127,46 @@ jindo.$Fn.prototype.detach=function(oElement,sEvent){
                     else{
                         if(ev=="transitionend"||ev=="transitionstart"){
                             var sPrefix,sPostfix=ev.replace("transition","");
-                            sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                            if(typeof document.body.style.WebkitTransition!=="undefined"){
-                                sPrefix="webkit"
-                            }
-                            else{
-                                if(typeof document.body.style.OTransition!=="undefined"){
-                                    sPrefix="o"
+                            sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                            if (typeof document.body.style.transition === "undefined") {
+                                if (typeof document.body.style.WebkitTransition !== "undefined") {
+                                    sPrefix = "webkit"
                                 }
-                                else{
-                                    if(typeof document.body.style.MsTransition!=="undefined"){
-                                        sPrefix="ms"
+                                else {
+                                    if (typeof document.body.style.OTransition !== "undefined") {
+                                        sPrefix = "o"
                                     }
-                                    
+                                    else {
+                                        if (typeof document.body.style.MsTransition !== "undefined") {
+                                            sPrefix = "ms"
+                                        }
+                                    }
                                 }
-                                
                             }
-                            ev=(sPrefix?sPrefix+"Transition":"transition")+sPostfix;
+                            ev = sPrefix ? sPrefix + "Transition" + sPostfix : ev;
                             this._for_test_detach=ev;
                             this._for_test_attach=""
                         }
                         else{
                             if(ev=="animationstart"||ev=="animationend"||ev=="animationiteration"){
                                 var sPrefix,sPostfix=ev.replace("animation","");
-                                sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                                if(typeof document.body.style.WebkitAnimationName!=="undefined"){
-                                    sPrefix="webkit"
-                                }
-                                else{
-                                    if(typeof document.body.style.OAnimationName!=="undefined"){
-                                        sPrefix="o"
+                                sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                                if (typeof document.body.style.animationName === "undefined") {
+                                    if (typeof document.body.style.WebkitAnimationName !== "undefined") {
+                                        sPrefix = "webkit"
                                     }
-                                    else{
-                                        if(typeof document.body.style.MsTransitionName!=="undefined"){
-                                            sPrefix="ms"
+                                    else {
+                                        if (typeof document.body.style.OAnimationName !== "undefined") {
+                                            sPrefix = "o"
                                         }
-                                        
+                                        else {
+                                            if (typeof document.body.style.MsTransitionName !== "undefined") {
+                                                sPrefix = "ms"
+                                            }
+                                        }
                                     }
-                                    
                                 }
-                                ev=(sPrefix?sPrefix+"Animation":"animation")+sPostfix;
+                                ev = sPrefix ? sPrefix + "Animation" + sPostfix : ev;
                                 this._for_test_detach=ev;
                                 this._for_test_attach=""
                             }
@@ -7016,21 +7016,21 @@ jindo.m=(function(){
 			element.removeEventListener("transitionend",fHandlerToUnbind,false)
         }
         ,getCssPrefix:function(){
-            var sCssPrefix="";
-            if(typeof document.body.style.MozTransition!=="undefined"){
-                sCssPrefix="Moz"
-            }
-            else{
-                if(typeof document.body.style.webkitTransition!=="undefined"){
-                    sCssPrefix="webkit"
+            var sCssPrefix = "";
+            if (typeof document.body.style.transition === "undefined") {
+                if (typeof document.body.style.MozTransition !== "undefined") {
+                    sCssPrefix = "Moz"
                 }
-                else{
-                    if(typeof document.body.style.OTransition!=="undefined"){
-                        sCssPrefix="O"
+                else {
+                    if (typeof document.body.style.webkitTransition !== "undefined") {
+                        sCssPrefix = "webkit"
                     }
-                    
+                    else {
+                        if (typeof document.body.style.OTransition !== "undefined") {
+                            sCssPrefix = "O"
+                        }
+                    }
                 }
-                
             }
             return sCssPrefix
         }
@@ -15171,44 +15171,44 @@ MobileCommentJindo.$Element.eventManager=(function(){
                                 else{
                                     if(sEvent=="transitionend"||sEvent=="transitionstart"){
                                         var sPrefix,sPostfix=sEvent.replace("transition","");
-                                        sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                                        if(document.body.style.WebkitTransition!==undefined){
-                                            sPrefix="webkit"
-                                        }
-                                        else{
-                                            if(document.body.style.OTransition!==undefined){
-                                                sPrefix="o"
+                                        sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                                        if (document.body.style.transition === undefined) {
+                                            if (document.body.style.WebkitTransition !== undefined) {
+                                                sPrefix = "webkit"
                                             }
-                                            else{
-                                                if(document.body.style.MsTransition!==undefined){
-                                                    sPrefix="ms"
+                                            else {
+                                                if (document.body.style.OTransition !== undefined) {
+                                                    sPrefix = "o"
                                                 }
-                                                
+                                                else {
+                                                    if (document.body.style.MsTransition !== undefined) {
+                                                        sPrefix = "ms"
+                                                    }
+                                                }
                                             }
-                                            
                                         }
-                                        sEvent=(sPrefix?sPrefix+"Transition":"transition")+sPostfix
+                                        sEvent = sPrefix ? sPrefix + "Transition" + sPostfix : sEvent
                                     }
                                     else{
                                         if(sEvent=="animationstart"||sEvent=="animationend"||sEvent=="animationiteration"){
                                             var sPrefix,sPostfix=sEvent.replace("animation","");
-                                            sPostfix=sPostfix.substr(0,1).toUpperCase()+sPostfix.substr(1);
-                                            if(document.body.style.WebkitAnimationName!==undefined){
-                                                sPrefix="webkit"
-                                            }
-                                            else{
-                                                if(document.body.style.OAnimationName!==undefined){
-                                                    sPrefix="o"
+                                            sPostfix = sPostfix.substr(0, 1).toUpperCase() + sPostfix.substr(1);
+                                            if (document.body.style.animationName === undefined) {
+                                                if (document.body.style.WebkitAnimationName !== undefined) {
+                                                    sPrefix = "webkit"
                                                 }
-                                                else{
-                                                    if(document.body.style.MsTransitionName!==undefined){
-                                                        sPrefix="ms"
+                                                else {
+                                                    if (document.body.style.OAnimationName !== undefined) {
+                                                        sPrefix = "o"
                                                     }
-                                                    
+                                                    else {
+                                                        if (document.body.style.MsTransitionName !== undefined) {
+                                                            sPrefix = "ms"
+                                                        }
+                                                    }
                                                 }
-                                                
                                             }
-                                            sEvent=(sPrefix?sPrefix+"Animation":"animation")+sPostfix
+                                            sEvent = sPrefix ? sPrefix + "Animation" + sPostfix : sEvent
                                         }
                                         else{
                                             if("mousedown|mousemove|mouseup".indexOf(sEvent)>-1){
@@ -18956,21 +18956,21 @@ MobileCommentJindo.m=(function(){
 			element.removeEventListener("transitionend",fHandlerToUnbind,false)
         }
         ,getCssPrefix:function(){
-            var sCssPrefix="";
-            if(typeof document.body.style.MozTransition!=="undefined"){
-                sCssPrefix="Moz"
-            }
-            else{
-                if(typeof document.body.style.webkitTransition!=="undefined"){
-                    sCssPrefix="webkit"
+            var sCssPrefix = "";
+            if (typeof document.body.style.transition === "undefined") {
+                if (typeof document.body.style.MozTransition !== "undefined") {
+                    sCssPrefix = "Moz"
                 }
-                else{
-                    if(typeof document.body.style.OTransition!=="undefined"){
-                        sCssPrefix="O"
+                else {
+                    if (typeof document.body.style.webkitTransition !== "undefined") {
+                        sCssPrefix = "webkit"
                     }
-                    
+                    else {
+                        if (typeof document.body.style.OTransition !== "undefined") {
+                            sCssPrefix = "O"
+                        }
+                    }
                 }
-                
             }
             return sCssPrefix
         }
@@ -21345,13 +21345,13 @@ MobileCommentJindo.m.DragArea=MobileCommentJindo.$Class({
     
 }).extend(MobileCommentJindo.UIComponent);
 window.requestAnimationFrame=(function(){
-    return window.requestAnimationFrame||window.webkitRequestAnimationFrame||function(callback){
+    return window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || function (callback) {
         return setTimeout(callback,1)
     }
     
 })();
-window.cancelRequestAnimationFrame=(function(){
-    return window.cancelRequestAnimationFrame||window.webkitCancelRequestAnimationFrame||clearTimeout
+window.cancelAnimationFrame=(function(){
+    return window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelRequestAnimationFrame || clearTimeout
 })();
 MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
     $init:function(el,htUserOption){
@@ -21561,7 +21561,7 @@ MobileCommentJindo.m.CoreScroll=MobileCommentJindo.$Class({
             MobileCommentJindo.m.detachTransitionEnd(this._htWElement.scroller.$value(),this._htEvent.TransitionEnd)
         }
         else{
-            cancelRequestAnimationFrame(this._nAniTimer)
+            cancelAnimationFrame(this._nAniTimer)
         }
         this._aAni=[];
         this._isAnimating=false
