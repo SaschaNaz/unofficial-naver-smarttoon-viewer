@@ -3915,7 +3915,7 @@ jindo.$Element.prototype.outerHTML=function(){
 jindo.$Element.prototype.toString=jindo.$Element.prototype.outerHTML;
 jindo.$Element._getTransition=function(){
     var hasTransition=false,sTransitionName="";
-    if(typeof document.body.style.trasition!="undefined"){
+    if(typeof document.body.style.transition!="undefined"){
         hasTransition=true;
         sTransitionName="transition"
     }
@@ -15615,9 +15615,9 @@ if(!MobileCommentJindo.$Jindo.isUndefined(window)&&!(_j_ag.indexOf("IEMobile")==
 }
 MobileCommentJindo.$Element._getTransition=function(){
     var hasTransition=false,sTransitionName="";
-    if(document.body.style.trasition){
+    if(document.body.style.transition){
         hasTransition=true;
-        sTransitionName="trasition"
+        sTransitionName="transition"
     }
     else{
         if(document.body.style.webkitTransition!==undefined){
